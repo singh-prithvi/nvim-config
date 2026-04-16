@@ -70,12 +70,21 @@ return {
                 "You fix errors… but ignore the obvious ones in yourself.",
             }
 
-            -- vim.uv is the stable API (vim.loop is deprecated in Neovim 0.10+)
             math.randomseed(vim.uv.hrtime())
             local line = lines[math.random(#lines)]
 
-            -- Merge into existing opts rather than replacing the whole table
             opts.dashboard = vim.tbl_deep_extend("force", opts.dashboard or {}, {
+                preset = {
+                    header = [[
+███╗   ██╗██╗   ██╗██╗███╗   ███╗
+████╗  ██║██║   ██║██║████╗ ████║
+██╔██╗ ██║██║   ██║██║██╔████╔██║
+██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║
+██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║
+╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
+                    ]],
+                },
+
                 sections = {
                     { section = "header" },
                     { section = "keys", gap = 1, padding = 1 },
