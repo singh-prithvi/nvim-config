@@ -7,9 +7,11 @@ return {
         },
     },
 
-    -- install catppuccin
+    -- install colorscheme
+    -- make sure we load the wanted colorscheme during startup if it is your main colorscheme (by putting lazy = false)
     {
         "catppuccin/nvim",
+        lazy = false,
         name = "catppuccin",
         priority = 1000,
         opts = {
@@ -20,5 +22,13 @@ return {
     {
         "folke/tokyonight.nvim",
         lazy = true, -- don't load automatically
+    },
+    {
+        "oskarnurm/koda.nvim",
+        lazy = true,
+        config = function()
+            -- require("koda").setup({ transparent = true })
+            vim.cmd("colorscheme koda")
+        end,
     },
 }
