@@ -2,7 +2,7 @@ return {
     {
         "sphamba/smear-cursor.nvim",
         opts = function()
-            -- 🔁 CHANGE THIS NUMBER (1–5)
+            -- 🔁 CHANGE THIS NUMBER (1–6) to switch cursor style
             local style = 5
 
             local styles = {
@@ -35,60 +35,47 @@ return {
 
                 -- 5️⃣ Fire 🔥
                 [5] = {
-                    -- 🔥 Motion physics (slightly soft for flame feel)
                     stiffness = 0.55,
                     trailing_stiffness = 0.25,
                     damping = 0.7,
 
-                    -- ⚡ Smoothness tuned for 180Hz
-                    time_interval = 5, -- ~200 FPS cap (perfect for 180Hz)
+                    time_interval = 5, -- ~200 FPS cap (good for 180Hz)
 
-                    -- 🎨 Fire colors
                     cursor_color = "#ff5a00",
 
-                    -- 💥 Particles (dense but stable)
                     particles_enabled = true,
-                    particles_per_second = 280, -- slightly above refresh rate
-                    particle_spread = 1, -- wide flame spread
-                    particle_lifetime = 140, -- longer = flame trail
+                    particles_per_second = 280,
+                    particle_spread = 1,
+                    particle_lifetime = 140,
 
-                    -- 🔥 Flame shaping
                     trailing_exponent = 1.2,
                     gamma = 1.3,
 
-                    -- ✨ Extra feel
                     distance_stop_animating = 0.3,
                 },
 
-                -- 6️⃣ FLASH ⚡ (super speed / teleport feel)
-                -- 6️⃣ FLASH ⚡ (180Hz optimized + more particles)
+                -- 6️⃣ Flash ⚡ (180Hz optimized, electric blue streak)
                 [6] = {
                     stiffness = 1,
                     trailing_stiffness = 0.95,
                     damping = 1,
 
-                    -- 🔥 Smoothness (180Hz tuning)
                     time_interval = 5, -- ~200 FPS cap (good for 180Hz)
 
-                    -- ⚡ Motion feel
                     distance_stop_animating = 0.5,
                     trailing_exponent = 2.5,
 
-                    -- 🎨 Color (electric blue flash vibe)
                     cursor_color = "#00f7ff",
 
-                    -- 💥 PARTICLES (enhanced but controlled)
                     particles_enabled = true,
-                    particles_per_second = 180, -- matches your refresh rate 🔥
+                    particles_per_second = 180, -- matches 180Hz refresh rate
                     particle_spread = 0.4,
                     particle_lifetime = 80, -- short = fast streak effect
 
-                    -- optional: tighter look
                     gamma = 1,
                 },
             }
 
-            -- base config
             local base = {
                 cursor_color = "#89b4fa",
                 smear_between_buffers = true,
@@ -96,7 +83,6 @@ return {
                 smear_insert_mode = true,
             }
 
-            -- merge base + selected style
             return vim.tbl_deep_extend("force", base, styles[style])
         end,
     },
