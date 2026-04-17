@@ -23,12 +23,4 @@ return {
         "folke/tokyonight.nvim",
         lazy = true, -- don't load automatically
     },
-    {
-        "oskarnurm/koda.nvim",
-        lazy = true,
-        config = function()
-            -- require("koda").setup({ transparent = true })
-            vim.cmd("colorscheme koda")
-        end,
-    },
 }

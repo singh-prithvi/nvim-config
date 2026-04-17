@@ -9,9 +9,6 @@ vim.opt.guicursor = {
     "r-cr:hor20-Cursor",
 }
 
--- catppuccin colorscheme
-vim.g.colorscheme = "catppuccin"
-
 -- Re-apply the Cursor highlight every time a colorscheme loads,
 -- because :colorscheme resets all highlights and would wipe this otherwise.
 vim.api.nvim_create_autocmd("ColorScheme", {
@@ -21,4 +18,4 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     end,
 })
 -- Apply immediately for the first load as well
-vim.api.nvim_set_hl(0, "Cursor", { fg = "#1e1e2e", bg = "#89b4fa" })
+vim.api.nvim_exec_autocmds("ColorScheme", { group = "user_cursor_hl" })

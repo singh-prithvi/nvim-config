@@ -1,6 +1,7 @@
 return {
     {
         "sphamba/smear-cursor.nvim",
+        event = "VeryLazy",
         opts = function()
             -- 🔁 CHANGE THIS NUMBER (1–6) to switch cursor style
             local style = 5

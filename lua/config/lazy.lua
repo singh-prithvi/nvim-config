@@ -23,7 +23,7 @@ require("lazy").setup({
         lazy = false,
         version = false, -- always use the latest git commit
     },
-    install = { colorscheme = { "colorscheme", "habamax" } },
+    install = { colorscheme = { "catppuccin", "habamax" } },
     checker = {
         enabled = true, -- periodically check for plugin updates
         notify = false, -- don't pop a notification, just update the badge
