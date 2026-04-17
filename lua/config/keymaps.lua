@@ -22,7 +22,7 @@ end
 -- ─── C++ Runner ─────────────────────────────────────────────────────────────
 
 -- F5: write and run the current C++ file in a persistent bottom terminal
-vim.keymap.set("n", "<F5>", function()
+vim.keymap.set({ "n", "i", "t" }, "<F5>", function()
     -- If somehow triggered from the terminal itself, hop back to code first
     if vim.bo.buftype == "terminal" then
         vim.cmd("wincmd p")
