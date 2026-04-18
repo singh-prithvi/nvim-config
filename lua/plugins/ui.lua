@@ -40,7 +40,7 @@ return {
                     trailing_stiffness = 0.25,
                     damping = 0.7,
 
-                    time_interval = 8, -- ~200 FPS cap (good for 180Hz)
+                    time_interval = 8,
 
                     cursor_color = "#ff5a00",
 
@@ -55,13 +55,13 @@ return {
                     distance_stop_animating = 0.3,
                 },
 
-                -- 6️⃣ Flash ⚡ (180Hz optimized, electric blue streak)
+                -- 6️⃣ Flash ⚡
                 [6] = {
                     stiffness = 1,
                     trailing_stiffness = 0.95,
                     damping = 1,
 
-                    time_interval = 8, -- ~200 FPS cap (good for 180Hz)
+                    time_interval = 8,
 
                     distance_stop_animating = 0.5,
                     trailing_exponent = 2.5,
@@ -69,9 +69,9 @@ return {
                     cursor_color = "#00f7ff",
 
                     particles_enabled = true,
-                    particles_per_second = 120, -- matches 180Hz refresh rate
+                    particles_per_second = 120,
                     particle_spread = 0.4,
-                    particle_lifetime = 80, -- short = fast streak effect
+                    particle_lifetime = 80,
 
                     gamma = 1,
                 },
