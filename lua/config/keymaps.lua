@@ -5,7 +5,6 @@
 -- ─── Helpers ────────────────────────────────────────────────────────────────
 
 -- Open a new bottom terminal split and record its buf/win in globals
-
 vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
         vim.g.cpp_term_buf = nil
@@ -113,7 +112,7 @@ vim.keymap.set({ "n", "t" }, "<leader>k", function()
     end
 end, { desc = "Toggle code/terminal focus" })
 
--- ─── Insert-mode Escape from Pairs ──────────────────────────────────────────
+-- ─── Insert-mode Escape from Pairs Mislennious──────────────────────────────────────────
 
 -- Ctrl-L: if the cursor is sitting just before a closing bracket or quote,
 -- jump past it instead of inserting a literal Ctrl-L.
@@ -125,3 +124,21 @@ vim.keymap.set("i", "<C-l>", function()
     end
     return "<C-l>"
 end, { expr = true, silent = true, desc = "Jump past closing pair" })
+
+-- ─── Miscellaneous ─────────────────────────────────────────────────────────────────────
+vim.keymap.set("i", "jk", function()
+    local col = vim.fn.col(".") - 1
+    local line = vim.fn.getline(".")
+
+    -- Check previous character
+    if col > 0 then
+        local prev_char = line:sub(col, col)
+
+        -- If previous char is a letter → don't escape
+        if prev_char:match("%a") then
+            return "jk"
+        end
+    end
+
+    return "<Esc>"
+end, { expr = true, noremap = true, silent = true })

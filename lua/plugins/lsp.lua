@@ -20,7 +20,7 @@ return {
             ensure_installed = {
                 "clangd",
                 "pyright",
-                "rust_analyzer",
+                "rust-analyzer",
             },
         },
     },
