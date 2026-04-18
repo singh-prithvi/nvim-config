@@ -28,6 +28,12 @@ local function run_file_in_chan(chan, file, ft)
         vim.fn.chansend(chan, "g++ " .. file .. " -o out && ./out\n")
     elseif ft == "python" then
         vim.fn.chansend(chan, "python3 " .. file .. "\n")
+    elseif ft == "rust" then
+        if vim.fn.filereadable(vim.fn.expand("%:p:h") .. "/Cargo.toml") == 1 then
+            vim.fn.chansend(chan, "cargo run\n")
+        else
+            vim.fn.chansend(chan, "rustc " .. file .. " -o out && ./out\n")
+        end
     end
 end
 
@@ -40,7 +46,7 @@ vim.keymap.set({ "n", "i", "t" }, "<F5>", function()
     end
 
     local ft = vim.bo.filetype
-    if ft ~= "cpp" and ft ~= "python" then
+    if ft ~= "cpp" and ft ~= "python" and ft ~= "rust" then
         return
     end
     -- If somehow triggered from the terminal itself, hop back to code first
@@ -89,12 +95,12 @@ vim.keymap.set({ "n", "i", "t" }, "<F5>", function()
     end
 
     vim.cmd("wincmd p") -- return focus to the code window
-end, { desc = "Run C++ file" })
+end, { desc = "Run current file (C++ / Python / Rust)" })
 
 -- ─── Terminal Toggle ─────────────────────────────────────────────────────────
 
 -- Ctrl-K: jump to the terminal from code, or back to code from the terminal
-vim.keymap.set({ "n", "t" }, "<leader>tt", function()
+vim.keymap.set({ "n", "t" }, "<leader>k", function()
     if vim.bo.buftype == "terminal" then
         vim.cmd("wincmd p")
         return

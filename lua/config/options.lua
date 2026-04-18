@@ -17,5 +17,3 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         vim.api.nvim_set_hl(0, "Cursor", { fg = "#1e1e2e", bg = "#89b4fa" })
     end,
 })
--- Apply immediately for the first load as well
-vim.api.nvim_exec_autocmds("ColorScheme", { group = "user_cursor_hl" })

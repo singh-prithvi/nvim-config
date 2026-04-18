@@ -6,6 +6,10 @@ return {
                 clangd = {
                     cmd = { "clangd", "--background-index", "--clang-tidy" },
                 },
+
+                pyright = {},
+
+                rust_analyzer = {},
             },
         },
     },
@@ -13,7 +17,11 @@ return {
     {
         "mason-org/mason.nvim",
         opts = {
-            ensure_installed = { "clangd" },
+            ensure_installed = {
+                "clangd",
+                "pyright",
+                "rust_analyzer",
+            },
         },
     },
 }

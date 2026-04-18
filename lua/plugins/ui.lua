@@ -40,12 +40,12 @@ return {
                     trailing_stiffness = 0.25,
                     damping = 0.7,
 
-                    time_interval = 5, -- ~200 FPS cap (good for 180Hz)
+                    time_interval = 8, -- ~200 FPS cap (good for 180Hz)
 
                     cursor_color = "#ff5a00",
 
                     particles_enabled = true,
-                    particles_per_second = 280,
+                    particles_per_second = 120,
                     particle_spread = 1,
                     particle_lifetime = 140,
 
@@ -61,7 +61,7 @@ return {
                     trailing_stiffness = 0.95,
                     damping = 1,
 
-                    time_interval = 5, -- ~200 FPS cap (good for 180Hz)
+                    time_interval = 8, -- ~200 FPS cap (good for 180Hz)
 
                     distance_stop_animating = 0.5,
                     trailing_exponent = 2.5,
@@ -69,7 +69,7 @@ return {
                     cursor_color = "#00f7ff",
 
                     particles_enabled = true,
-                    particles_per_second = 180, -- matches 180Hz refresh rate
+                    particles_per_second = 120, -- matches 180Hz refresh rate
                     particle_spread = 0.4,
                     particle_lifetime = 80, -- short = fast streak effect
 
