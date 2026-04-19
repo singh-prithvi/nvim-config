@@ -147,7 +147,31 @@ end, { expr = true, noremap = true, silent = true })
 
 -- 🌐 Browser-like tab controls
 vim.keymap.set("n", "<leader>tt", "<cmd>tabnew<cr>", { desc = "New tab" }) -- New tab
-vim.keymap.set("n", "<leader>tw", "<cmd>tabclose<cr>", { desc = "Close tab" }) -- Close tab
+
+vim.keymap.set("n", "<leader>tc", function() -- Closes the current tab
+    local current_buf = vim.api.nvim_get_current_buf()
+    local current_ft = vim.bo.filetype
+    -- 🚫 NEVER close Neo-tree
+    if current_ft == "neo-tree" then
+        vim.notify("Neo-tree can't be closed with this", vim.log.levels.WARN)
+        return
+    end
+    local bufs = vim.fn.getbufinfo({ buflisted = 1 })
+    local tabs = vim.fn.tabpagenr("$")
+    -- 🧠 If last tab + last buffer → quit (with save prompt)
+    if #bufs == 1 and tabs == 1 then
+        vim.cmd("confirm q")
+        return
+    end
+    -- Normal behavior
+    if #bufs > 1 then
+        vim.cmd("bnext")
+        vim.cmd("bd " .. current_buf)
+    else
+        vim.cmd("enew")
+    end
+end, { desc = "Close buffer (smart)" })
+
 vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "Only this tab" }) -- Close other tabs
 for i = 1, 9 do
     vim.keymap.set("n", "<leader>t" .. i, i .. "gt", {
