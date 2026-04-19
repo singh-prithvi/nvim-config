@@ -126,6 +126,8 @@ vim.keymap.set("i", "<C-l>", function()
 end, { expr = true, silent = true, desc = "Jump past closing pair" })
 
 -- ─── Miscellaneous ─────────────────────────────────────────────────────────────────────
+
+-- Esc via j+k keymap
 vim.keymap.set("i", "jk", function()
     local col = vim.fn.col(".") - 1
     local line = vim.fn.getline(".")
@@ -142,3 +144,13 @@ vim.keymap.set("i", "jk", function()
 
     return "<Esc>"
 end, { expr = true, noremap = true, silent = true })
+
+-- 🌐 Browser-like tab controls
+vim.keymap.set("n", "<leader>tt", "<cmd>tabnew<cr>", { desc = "New tab" }) -- New tab
+vim.keymap.set("n", "<leader>tw", "<cmd>tabclose<cr>", { desc = "Close tab" }) -- Close tab
+vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "Only this tab" }) -- Close other tabs
+for i = 1, 9 do
+    vim.keymap.set("n", "<leader>t" .. i, i .. "gt", {
+        desc = "Go to tab " .. i,
+    })
+end
