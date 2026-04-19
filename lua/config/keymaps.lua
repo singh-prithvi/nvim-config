@@ -99,7 +99,7 @@ end, { desc = "Run current file (C++ / Python / Rust)" })
 -- ─── Terminal Toggle ─────────────────────────────────────────────────────────
 
 -- Ctrl-K: jump to the terminal from code, or back to code from the terminal
-vim.keymap.set({ "n", "t" }, "<leader>k", function()
+vim.keymap.set({ "n", "i", "t" }, "<leader>k", function()
     if vim.bo.buftype == "terminal" then
         vim.cmd("wincmd p")
         return
