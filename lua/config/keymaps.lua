@@ -150,23 +150,28 @@ vim.keymap.set("n", "<leader>tt", "<cmd>tabnew<cr>", { desc = "New tab" }) -- Ne
 
 vim.keymap.set("n", "<leader>tc", function() -- Closes the current tab
     local current_buf = vim.api.nvim_get_current_buf()
-    local current_ft = vim.bo.filetype
+    local current_ft = vim.bo[current_buf].filetype
     -- 🚫 NEVER close Neo-tree
-    if current_ft == "neo-tree" then
-        vim.notify("Neo-tree can't be closed with this", vim.log.levels.WARN)
+    if current_ft == "snacks_explorer" then
+        vim.notify("Explorer can't be closed with this", vim.log.levels.WARN)
         return
     end
-    local bufs = vim.fn.getbufinfo({ buflisted = 1 })
+    local real_bufs = {}
+    for _, buf in ipairs(vim.fn.getbufinfo({ buflisted = 1 })) do
+        if vim.bo[buf.bufnr].filetype ~= "snacks_explorer" then
+            table.insert(real_bufs, buf.bufnr)
+        end
+    end
     local tabs = vim.fn.tabpagenr("$")
     -- 🧠 If last tab + last buffer → quit (with save prompt)
-    if #bufs == 1 and tabs == 1 then
+    if #real_bufs == 1 and tabs == 1 then
         vim.cmd("confirm q")
         return
     end
     -- Normal behavior
-    if #bufs > 1 then
+    if #real_bufs > 1 then
         vim.cmd("bnext")
-        vim.cmd("bd " .. current_buf)
+        vim.cmd("confirm bd " .. current_buf)
     else
         vim.cmd("enew")
     end
@@ -174,7 +179,7 @@ end, { desc = "Close buffer (smart)" })
 
 vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>", { desc = "Only this tab" }) -- Close other tabs
 for i = 1, 9 do
-    vim.keymap.set("n", "<leader>t" .. i, i .. "gt", {
-        desc = "Go to tab " .. i,
+    vim.keymap.set("n", "<leader>" .. i, "<cmd>BufferLineGoToBuffer " .. i .. "<cr>", {
+        desc = "Go to buffer " .. i,
     })
 end
