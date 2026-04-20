@@ -24,6 +24,7 @@ The design goal is simple: **fast startup, predictable behavior, and a workflow 
 ## ✨ Features
 
 - 🚀 **One-key multi-language runner** — F5 compiles and runs C++, Python, or Rust in a persistent bottom terminal, with smart process management (interrupt → recompile, auto-restart on crash)
+- ⚡ **SnipRun integration** — run small code snippets or selections instantly inside the editor (inline / floating) via `<leader>r`, ideal for quick logic testing without leaving the buffer
 - 🗂 **Buffer-centric navigation** — Bufferline with ordinal numbers and `<leader>t1–9` direct jumps, matching the muscle memory of browser tab navigation
 - 🎨 **Catppuccin Mocha** with transparent background and a custom blue cursor tied to the palette
 - 🔥 **Animated fire cursor** via smear-cursor.nvim — because why not
