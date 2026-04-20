@@ -191,6 +191,18 @@ Works from Normal, Insert, and Terminal mode. Filenames with spaces or special c
 
 ---
 
+### SnipRun — Quick Code Execution
+
+- `<leader>r` → run current line or selection  
+- Output inside Neovim (inline / floating)  
+- For quick logic checks — not full programs  
+- No interactive input (`cin`, `scanf`)  
+- Not for multi-file execution  
+- Test a loop, condition, or small snippet instantly
+- Avoid recompiling the entire program
+
+---
+
 ### Smart Insert Escape (`jk`)
 
 The `jk` → `<Esc>` mapping includes word-boundary detection. If the character immediately before the cursor is a letter (i.e., you're mid-word), `jk` types literally. Only triggers escape at word boundaries.
