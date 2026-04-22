@@ -28,7 +28,7 @@ The design goal is simple: **fast startup, predictable behavior, and a workflow 
 - 🗂 **Buffer-centric navigation** — Bufferline with ordinal numbers and `<leader>t1–9` direct jumps, matching the muscle memory of browser tab navigation
 - 🎨 **Catppuccin Mocha** with transparent background and a custom blue cursor tied to the palette
 - 🔥 **Animated fire cursor** via smear-cursor.nvim — because why not
-- 💬 **Self-roast dashboard** — 190 rotating programmer quotes on startup. Motivational in the only honest way
+- 💬 **Self-roast dashboard** — 220 rotating programmer quotes on startup. Motivational in the only honest way
 - 🧠 **Smart insert-mode escape** (`jk`) that detects when you're mid-word and doesn't interrupt normal typing
 - ⬆️ **Jump-past-closing-bracket** in insert mode (`<C-l>`) — skip `)`, `}`, `]`, `"` without reaching for Escape or arrow keys
 - 📐 **Mode-aware cursor shapes** — block in Normal, beam in Insert, underline in Replace
@@ -110,7 +110,7 @@ nvim/
     │   ├── options.lua         # Editor options, cursor shape, colorscheme hook
     │   ├── keymaps.lua         # All custom keymaps + F5 runner logic
     │   ├── autocmds.lua        # Custom autocommands
-    │   └── quotes.lua          # 190 programmer quotes for the dashboard
+    │   └── quotes.lua          # 220 programmer quotes for the dashboard
     └── plugins/
         ├── colorscheme.lua     # Catppuccin Mocha (transparent) + Tokyonight fallback
         ├── dashboard.lua       # Snacks dashboard with custom header + random quote
@@ -231,7 +231,7 @@ Cursor color is pinned to Catppuccin blue (`#89b4fa`) and re-applied automatical
 
 ### Self-Roast Dashboard
 
-The startup dashboard picks one of **190 programmer quotes** at random on every launch. They range from gently ironic to brutally honest. No inspirational nonsense.
+The startup dashboard picks one of **220 programmer quotes** at random on every launch. They range from gently ironic to brutally honest. No inspirational nonsense.
 
 ```
 Your code works best when you don't touch it.
