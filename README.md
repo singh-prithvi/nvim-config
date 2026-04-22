@@ -110,7 +110,7 @@ nvim/
     │   ├── options.lua         # Editor options, cursor shape, colorscheme hook
     │   ├── keymaps.lua         # All custom keymaps + F5 runner logic
     │   ├── autocmds.lua        # Custom autocommands
-    │   └── quotes.lua          # 220 programmer quotes for the dashboard
+    │   └── quotes.lua          # 220 fun programmer quotes for the dashboard
     └── plugins/
         ├── colorscheme.lua     # Catppuccin Mocha (transparent) + Tokyonight fallback
         ├── dashboard.lua       # Snacks dashboard with custom header + random quote
