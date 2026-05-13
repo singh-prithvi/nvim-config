@@ -4,6 +4,11 @@
 
 vim.opt.showtabline = 2 -- Always show tabline
 
+vim.opt.tabstop = 8
+vim.opt.shiftwidth = 8
+vim.opt.softtabstop = 8
+vim.opt.expandtab = true
+
 -- Cursor shape per mode
 vim.opt.guicursor = {
     "n-v-c:block-Cursor",
