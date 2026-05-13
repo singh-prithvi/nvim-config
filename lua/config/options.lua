@@ -24,3 +24,5 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         vim.api.nvim_set_hl(0, "Cursor", { fg = "#1e1e2e", bg = "#89b4fa" })
     end,
 })
+
+vim.opt.timeoutlen = 200 -- Time (ms) to wait for mapped key sequences (jk → Esc)
